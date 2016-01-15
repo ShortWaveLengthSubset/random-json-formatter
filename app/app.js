@@ -2,18 +2,26 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('myApp', [
+    'myApp.core',
     'myApp.config',
     'myApp.security',
     'myApp.home',
     'myApp.account',
     'myApp.chat',
-    'myApp.login'
+    'myApp.login',
+    'myApp.randomJson'
   ])
   
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({
-      redirectTo: '/home'
-    });
+    $routeProvider
+      .when('/random', {
+        templateUrl: 'random_json/random_json.html',
+        controller: 'RandomJsonController'
+      })
+      .otherwise({
+        redirectTo: '/home'
+      })
+
   }])
   
   .run(['$rootScope', 'Auth', function($rootScope, Auth) {

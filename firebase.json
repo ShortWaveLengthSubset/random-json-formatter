@@ -1,5 +1,5 @@
 {
-  "firebase": "INSTANCE",
+  "firebase": "random-json",
   "public": "app",
   "ignore": [
     "firebase.json",

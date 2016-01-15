@@ -11,7 +11,16 @@ angular.module('myApp.config', [])
   .constant('loginRedirectPath', '/login')
 
   // your Firebase data URL goes here, no trailing slash
-  .constant('FBURL', 'https://random-json-formatter.firebaseio.com/')
+  .constant('FBURL', 'https://random-json.firebaseio.com/')
+
+  // define app constants
+  .constant('CONSTANTS', (function() {
+  // Use the variable in your constants
+    return {
+      MOCKAROO_API: "http://www.mockaroo.com/api/generate.json",
+      MOCKAROO_KEY: '3fd7b0a0'
+    }
+  })())
 
   // double check that the app has been configured before running it and blowing up space and time
   .run(['FBURL', '$timeout', function(FBURL, $timeout) {
